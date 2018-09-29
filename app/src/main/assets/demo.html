@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>
+        js调用java
+    </title>
+</head>
+
+<body>
+<p>
+    <xmp id="show">
+    </xmp>
+</p>
+<p>
+    <xmp id="init">
+    </xmp>
+</p>
+
+
+<p>
+    <input type="button" id="enter" value="发消息给Native" onclick="testClick();"
+    />
+</p>
+<p>
+    <input type="button" id="enter1" value="调用Native方法" onclick="testClick1();"
+    />
+</p>
+
+<p>
+    <input type="button" id="enter2" value="显示html" onclick="testDiv();"/>
+</p>
+<p>
+    <input type="button" id="enter3" value="隐藏html" onclick="hideDiv();"/>
+</p>
+
+</body>
+<script>
+        function testDiv() {
+            document.getElementById("show").innerHTML = document.getElementsByTagName("html")[0].innerHTML;
+        }
+
+        function hideDiv() {
+            document.getElementById("show").innerHTML = "".innerHTML;
+        }
+
+        function testClick() {
+            jsbridge.exec(null,null,null,'goBack');
+        }
+
+        function testClick1() {
+            jsbridge.exec(null,null,'UIManager','showToast',"haha");
+        }
+
+</script>
+
+</html>
